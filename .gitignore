@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+*.pyc
+.env
+data/papers/
+data/metadata/
+data/reviews/
+data/corpus/
+data/index.faiss
