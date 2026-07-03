@@ -1,0 +1,48 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python preprocess.py
+    deps:
+    - path: data/metadata
+      hash: md5
+      md5: 1737f921fcef56c3730e3f47d9add225.dir
+      size: 272
+      nfiles: 1
+    - path: data/papers
+      hash: md5
+      md5: 0275ebb26f86c08d3e451d994f14773c.dir
+      size: 4158299
+      nfiles: 2
+    - path: data/reviews
+      hash: md5
+      md5: 9ff8eed0dbed0c60b6a796e96843ef72.dir
+      size: 1206
+      nfiles: 1
+    - path: preprocess.py
+      hash: md5
+      md5: 5fbdbc8a2e03a9cdbb50bd74a9f6224f
+      size: 2568
+    outs:
+    - path: data/corpus/result.json
+      hash: md5
+      md5: 52ac565e2a366f3397fd337556f3f9e0
+      size: 420701
+    - path: data/saved/index.faiss
+      hash: md5
+      md5: 1fe0fbaccd6475ba709dfc94cc855b6b
+      size: 307245
+  retrieve:
+    cmd: python main.py
+    deps:
+    - path: data/corpus/result.json
+      hash: md5
+      md5: 52ac565e2a366f3397fd337556f3f9e0
+      size: 420701
+    - path: data/saved/index.faiss
+      hash: md5
+      md5: 1fe0fbaccd6475ba709dfc94cc855b6b
+      size: 307245
+    - path: main.py
+      hash: md5
+      md5: a531dca3c26261c125ab7faaf95416ff
+      size: 1290

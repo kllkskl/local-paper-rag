@@ -1,0 +1,18 @@
+stages:
+  preprocess:
+    cmd: python preprocess.py
+    deps:
+      - preprocess.py
+      - data/papers
+      - data/metadata
+      - data/reviews
+    outs:
+      - data/corpus/result.json
+      - data/saved/index.faiss
+
+  retrieve:
+    cmd: python main.py
+    deps:
+      - main.py
+      - data/corpus/result.json
+      - data/saved/index.faiss
