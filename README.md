@@ -92,3 +92,13 @@ python main.py
 **Question:** "Where does CHIA help?"
 
 **Answer:** CHIA helps in managing and running agentic design patterns, creating CHIA clusters and loops, and providing a runtime environment for user-defined workflows. It also assists in fault tolerance, subprocess tracking, and caching to ensure smooth operation and resource management.
+
+
+## Data
+This repo doesn't include the source papers, metadata, or reviews — 
+add your own under:
+- `data/papers/*.pdf`
+- `data/metadata/papers.csv`  (columns: id, title, author, year, topic)
+- `data/reviews/reviews.json`
+
+See `data/metadata/papers.csv.example` and `data/reviews/reviews.json.example` for the expected format.

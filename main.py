@@ -37,7 +37,7 @@ def ask(question):
     print(response.choices[0].message.content)
 
 question = "Where does CHIA help?"
-answer = ask(question)
+answer = ask(question) 
 
 
     
