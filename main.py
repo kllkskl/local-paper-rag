@@ -38,7 +38,6 @@ def ask(question):
 
 question = "Where does CHIA help?"
 answer = ask(question)
-print(answer)
 
 
     
