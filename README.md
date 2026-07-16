@@ -68,15 +68,20 @@ Download the Q4_K_M GGUF from [Qwen2.5-7B-Instruct-GGUF](https://huggingface.co/
 ​```bash
 python preprocess.py
 ​```
+### 5. Run Download_model.py before running main.py(requires internet)
 
-### 5. Start the local model server
+Downloads and caches the sentence-transformer 
+model locally so preprocess.py and main.py never need network accesss at runtime
+
+
+### 6. Start the local model server
 
 ​```bash
 cd llama.cpp/build/bin/Release
 ./llama-server -m path/to/qwen2.5-7b-instruct-q4_k_m.gguf --n-gpu-layers 999 --port 8080
 ​```
 
-### 6. Ask questions
+### 7. Ask questions
 
 ​```bash
 python main.py

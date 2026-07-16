@@ -14,7 +14,7 @@ chunks = []
 for s in source:
     chunks.append(s['text'])
 
-embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
+embedding_model = SentenceTransformer('./local_models/all-MiniLM-L6-v2')
 
 def ask(question):
     embedded_question = embedding_model.encode([question], convert_to_numpy=True).astype('float32')
