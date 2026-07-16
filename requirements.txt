@@ -1,1 +1,5 @@
-pip install numpy sentence_transformers faiss openai pandas marker
+numpy
+sentence-transformers
+faiss-cpu
+pandas
+PyMuPDF
