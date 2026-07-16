@@ -14,12 +14,11 @@ useful if you're working with unpublished or sensitive material.
 
 ## Architecture
 
-1.
-**PDF Parsing** - This project uses `PyMuPDF` (`fitz`) for PDF text extraction. 
-Note: this is a simpler, faster extraction path than layout-aware parsing 
-(e.g. `marker`) — it pulls raw text per page without preserving tables, 
-figure structure, or multi-column layout. Sufficient for the current 
-text-only embedding pipeline., 
+1. **PDF Parsing** - This project uses `PyMuPDF` (`fitz`) for PDF text extraction
+   Note: this is a simpler, faster extraction path than layout-aware parsing 
+   (e.g. `marker`) — it pulls raw text per page without preserving tables, 
+   figure structure, or multi-column layout. Sufficient for the current 
+   text-only embedding pipeline. 
    preserving layout structure and skipping embedded images.
 2. **Chunk** — Text is split into chunks, each tagged with metadata
    (paper title, section, etc.) so retrieved chunks stay traceable to source.
