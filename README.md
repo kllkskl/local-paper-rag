@@ -101,4 +101,4 @@ add your own under:
 - `data/metadata/papers.csv`  (columns: id, title, author, year, topic)
 - `data/reviews/reviews.json`
 
-See `data/metadata/papers.csv.example` and `data/reviews/reviews.json.example` for the expected format.
+See `data/examples/papers.csv.example` and `data/examples/reviews.json.example` for the expected format.

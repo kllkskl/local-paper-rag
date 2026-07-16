@@ -1,0 +1,12 @@
+[
+    {
+        "paper_id": "paper1",
+        "reviews": [
+            {
+                "Reviewer": "Reviewer1",
+                "score": 8,
+                "comment": "Solid methodology, but the related work section could be more thorough."
+            }
+        ]
+    }
+]
