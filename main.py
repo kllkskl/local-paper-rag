@@ -1,13 +1,9 @@
 import numpy as np
 import os
-import anthropic
-from dotenv import load_dotenv
 from sentence_transformers import SentenceTransformer
 import faiss
 import json
-
-load_dotenv()
-KEY = os.getenv('API')
+from openai import OpenAI
 
 index = faiss.read_index("data/saved/index.faiss")
 
@@ -22,25 +18,25 @@ embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
 
 def ask(question):
     embedded_question = embedding_model.encode([question], convert_to_numpy=True).astype('float32')
-    distances, indices = index.search(embedded_question, k=3)
+    _, indices = index.search(embedded_question, k=3)
     retrieved_chunks = [chunks[i] for i in indices[0]]
     context = "\n\n".join(retrieved_chunks)
 
-    client = anthropic.Anthropic(api_key=KEY)
-    response = client.messages.create(
-        model = 'claude-opus-4-6',
-        max_tokens = 1024,
+    client = OpenAI(
+        base_url = "http://127.0.0.1:8080/v1",
+        api_key="not_needed"
+    )
+    
+    response = client.chat.completions.create(
+        model = "qwen2.5-7b",
         messages = [
-            {
-                'role': 'user',
-                'content': f"Context\n{context}\n\n Question:{question}"
-            }
+            {"role": "system", "content": "Answer only using provided context"},
+            {"role": "user", "content": f"Context:\n{context}\n\nQuestion: {question}"}
         ]
     )
-    answer_text = "".join( block.text for block in response.content if block.type == "text")
-    return answer_text
+    print(response.choices[0].message.content)
 
-question = "What is CHIA?"
+question = "Where does CHIA help?"
 answer = ask(question)
 print(answer)
 
